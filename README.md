@@ -17,7 +17,10 @@
 TestFlow is an intelligent context-aware testing tool that automatically generates Behavior Driven Development (BDD) test cases from Java codebases. Developed for the Context-Aware Testing , it analyzes Spring Boot applications, extracts API endpoints with their full context, and creates comprehensive test suites that understand the relationships between components.
 
 ## 🎥 Demo
-📹 [Video Demo](artifacts/demo)  
+📹 [Video Demo](artifacts/demo) : 
+There are two demo videos, 
+1. Basic Test Flow execution demo.
+2. Update feature file demo. 
 🖼️ Screenshots:
 
 
