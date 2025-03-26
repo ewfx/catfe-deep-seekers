@@ -1,0 +1,173 @@
+2025-03-26 10:46:31,103 - INFO - Loaded successful API request data from C:\Users\kritik\Documents\hack2025\final\summary\bdd_test_cases\steps\..\successful_api_data.json
+2025-03-26 10:46:31,120 - INFO - API is accessible at http://localhost:8080/api/v1
+2025-03-26 10:46:31,122 - INFO - Using successful request data for PUT_accounts
+2025-03-26 10:46:31,129 - INFO - Created account for authenticated user with status: 200
+2025-03-26 10:46:31,131 - INFO - Using successful request data for PUT_accounts
+2025-03-26 10:46:31,131 - INFO - Created account details for unauthenticated user: {'bankName': 'Bank of Ceyloan', 'ownerName': 'Nayananga Muhandiram', 'username': 'user_9xAk1'}
+2025-03-26 10:46:31,132 - INFO - Using successful request data for PUT_accounts
+2025-03-26 10:46:31,140 - INFO - Created account for authenticated user with status: 200
+2025-03-26 10:46:31,141 - INFO - Using successful request data for PUT_accounts
+2025-03-26 10:46:31,148 - INFO - Created account for authenticated user with status: 200
+2025-03-26 10:46:31,157 - INFO - All tests completed
+
+You can implement step definitions for undefined steps with these snippets:
+
+@when(u'I send a "POST" request to "api/v1/accounts" to check my account balance')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "POST" request to "api/v1/accounts" to check my account balance')
+
+
+@then(u'the response should include my current account balance')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the response should include my current account balance')
+
+
+@then(u'the response should include an error message stating "Unauthorized access"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the response should include an error message stating "Unauthorized access"')
+
+
+@when(u'I send a "POST" request to "api/v1/accounts" with an invalid account')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "POST" request to "api/v1/accounts" with an invalid account')
+
+
+@then(u'the response should include an error message stating "Account not found"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the response should include an error message stating "Account not found"')
+
+
+@given(u'the account service is down')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given the account service is down')
+
+
+@then(u'the response should include an error message stating "Internal server error"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the response should include an error message stating "Internal server error"')
+
+
+@when(u'I send a "POST" request to "api/v1/accounts" without an account parameter')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "POST" request to "api/v1/accounts" without an account parameter')
+
+
+@then(u'the response should include an error message stating "Missing account parameter"')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the response should include an error message stating "Missing account parameter"')
+
+
+@given(u'a user has an account with a balance of $500')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given a user has an account with a balance of $500')
+
+
+@when(u'the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200')
+
+
+@then(u'the withdrawal should be successful')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the withdrawal should be successful')
+
+
+@then(u'the account balance should be reduced by $200')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the account balance should be reduced by $200')
+
+
+@given(u'a user has an account with a balance of $100')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given a user has an account with a balance of $100')
+
+
+@then(u'the withdrawal should be unsuccessful')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the withdrawal should be unsuccessful')
+
+
+@then(u'the system should respond with an "Insufficient funds" message')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the system should respond with an "Insufficient funds" message')
+
+
+@when(u'the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $-50')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $-50')
+
+
+@then(u'the system should respond with an "Invalid withdrawal amount" message')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the system should respond with an "Invalid withdrawal amount" message')
+
+
+@given(u'a user is not authenticated')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given a user is not authenticated')
+
+
+@then(u'the system should respond with an "Unauthenticated user" message')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the system should respond with an "Unauthenticated user" message')
+
+
+@given(u'a user is authenticated but not authorized to make withdrawals')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given a user is authenticated but not authorized to make withdrawals')
+
+
+@then(u'the system should respond with an "Unauthorized user" message')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then the system should respond with an "Unauthorized user" message')
+
+
+@given(u'I am a new user')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given I am a new user')
+
+
+@then(u'a response body confirming the account creation')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then a response body confirming the account creation')
+
+
+@when(u'I send a "PUT" request to "api/v1/accounts" with missing mandatory fields')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "PUT" request to "api/v1/accounts" with missing mandatory fields')
+
+
+@then(u'a response body indicating the missing mandatory fields')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then a response body indicating the missing mandatory fields')
+
+
+@when(u'I send a "PUT" request to "api/v1/accounts" with invalid field values')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "PUT" request to "api/v1/accounts" with invalid field values')
+
+
+@then(u'a response body indicating the invalid field values')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then a response body indicating the invalid field values')
+
+
+@when(u'I send a "PUT" request to "api/v1/accounts" with an already existing username')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I send a "PUT" request to "api/v1/accounts" with an already existing username')
+
+
+@then(u'a response body indicating the username already exists')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then a response body indicating the username already exists')
+
+
+@given(u'I am an unauthorized user')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given I am an unauthorized user')
+
+
+@then(u'a response body indicating I am unauthorized to create an account')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then a response body indicating I am unauthorized to create an account')
+

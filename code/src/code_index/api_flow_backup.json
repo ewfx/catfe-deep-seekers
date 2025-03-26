@@ -1,0 +1,96 @@
+{
+    "api/v1/accounts": {
+        "endpoints": [
+            {
+                "method": "checkAccountBalance",
+                "path": "/accounts",
+                "class": "AccountRestController",
+                "line_number": 39,
+                "http_method": "POST"
+            },
+            {
+                "method": "createAccount",
+                "path": "/accounts",
+                "class": "AccountRestController",
+                "line_number": 65,
+                "http_method": "PUT"
+            }
+        ],
+        "service_calls": [
+            {
+                "class": "AccountRestController",
+                "service": "AccountService",
+                "field": "accountService"
+            }
+        ]
+    },
+    "api/v1/transactions": {
+        "endpoints": [
+            {
+                "method": "makeTransfer",
+                "path": "/transactions",
+                "class": "TransactionRestController",
+                "line_number": 46,
+                "http_method": "POST"
+            }
+        ],
+        "service_calls": [
+            {
+                "class": "TransactionRestController",
+                "service": "AccountService",
+                "field": "accountService"
+            },
+            {
+                "class": "TransactionRestController",
+                "service": "TransactionService",
+                "field": "transactionService"
+            }
+        ]
+    },
+    "api/v1/withdraw": {
+        "endpoints": [
+            {
+                "method": "withdraw",
+                "path": "/withdraw",
+                "class": "TransactionRestController",
+                "line_number": 60,
+                "http_method": "POST"
+            }
+        ],
+        "service_calls": [
+            {
+                "class": "TransactionRestController",
+                "service": "AccountService",
+                "field": "accountService"
+            },
+            {
+                "class": "TransactionRestController",
+                "service": "TransactionService",
+                "field": "transactionService"
+            }
+        ]
+    },
+    "api/v1/deposit": {
+        "endpoints": [
+            {
+                "method": "deposit",
+                "path": "/deposit",
+                "class": "TransactionRestController",
+                "line_number": 89,
+                "http_method": "POST"
+            }
+        ],
+        "service_calls": [
+            {
+                "class": "TransactionRestController",
+                "service": "AccountService",
+                "field": "accountService"
+            },
+            {
+                "class": "TransactionRestController",
+                "service": "TransactionService",
+                "field": "transactionService"
+            }
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "PUT_accounts": {
+    "bankName": "Bank of Ceyloan",
+    "ownerName": "Nayananga Muhandiram"
+  },
+  "POST_deposit": {
+    "targetAccountNo": "95753174",
+    "amount": 1000.0
+  },
+  "POST_withdraw": {
+    "sortCode": "35-16-67",
+    "accountNumber": "95753174",
+    "amount": 100.0
+  },
+  "POST_transactions": {
+    "sourceAccount": {
+      "sortCode": "53-68-92",
+      "accountNumber": "73084635"
+    },
+    "targetAccount": {
+      "sortCode": "65-93-37",
+      "accountNumber": "21956204"
+    },
+    "amount": 105.0,
+    "reference": "My ref",
+    "latitude": 66.23423423,
+    "longitude": 105.234234
+  }
+}

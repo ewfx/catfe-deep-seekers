@@ -1,0 +1,86 @@
+<testsuite name="POST_api_v1_withdraw.Withdrawal from Account" tests="5" errors="0" failures="5" skipped="0" time="0.0" timestamp="2025-03-26T10:46:31.154033" hostname="DESKTOP-1PFA9L5"><testcase classname="POST_api_v1_withdraw.Withdrawal from Account" name="Successful withdrawal from account" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given a user has an account with a balance of $500 ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_withdraw.feature:7
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Successful withdrawal from account
+    Given a user has an account with a balance of $500 ... undefined in 0.000s
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 ... undefined in 0.000s
+    Then the withdrawal should be successful ... undefined in 0.000s
+    And the account balance should be reduced by $200 ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_withdraw.Withdrawal from Account" name="Unsuccessful withdrawal due to insufficient funds" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given a user has an account with a balance of $100 ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_withdraw.feature:13
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful withdrawal due to insufficient funds
+    Given a user has an account with a balance of $100 ... undefined in 0.000s
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 ... undefined in 0.000s
+    Then the withdrawal should be unsuccessful ... undefined in 0.000s
+    And the system should respond with an "Insufficient funds" message ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_withdraw.Withdrawal from Account" name="Unsuccessful withdrawal due to invalid amount" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given a user has an account with a balance of $500 ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_withdraw.feature:19
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful withdrawal due to invalid amount
+    Given a user has an account with a balance of $500 ... undefined in 0.000s
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $-50 ... undefined in 0.000s
+    Then the withdrawal should be unsuccessful ... undefined in 0.000s
+    And the system should respond with an "Invalid withdrawal amount" message ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_withdraw.Withdrawal from Account" name="Unsuccessful withdrawal due to unauthenticated user" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given a user is not authenticated ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_withdraw.feature:25
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful withdrawal due to unauthenticated user
+    Given a user is not authenticated ... undefined in 0.000s
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 ... undefined in 0.000s
+    Then the withdrawal should be unsuccessful ... undefined in 0.000s
+    And the system should respond with an "Unauthenticated user" message ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_withdraw.Withdrawal from Account" name="Unsuccessful withdrawal due to unauthorized user" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given a user is authenticated but not authorized to make withdrawals ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_withdraw.feature:31
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful withdrawal due to unauthorized user
+    Given a user is authenticated but not authorized to make withdrawals ... undefined in 0.000s
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 ... undefined in 0.000s
+    Then the withdrawal should be unsuccessful ... undefined in 0.000s
+    And the system should respond with an "Unauthorized user" message ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

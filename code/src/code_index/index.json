@@ -1,0 +1,1133 @@
+{
+    "clonned_repo\\.mvn\\wrapper\\MavenWrapperDownloader.java": {
+        "package": "default",
+        "classes": [
+            {
+                "name": "MavenWrapperDownloader",
+                "line_number": 21,
+                "package": "default",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "main",
+                "line_number": 48,
+                "annotations": []
+            },
+            {
+                "name": "downloadFileFromURL",
+                "line_number": 97,
+                "annotations": []
+            },
+            {
+                "name": "getPasswordAuthentication",
+                "line_number": 103,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\Application.java": {
+        "package": "com.example.paul",
+        "classes": [
+            {
+                "name": "Application",
+                "line_number": 7,
+                "package": "com.example.paul",
+                "annotations": [
+                    "SpringBootApplication"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "main",
+                "line_number": 9,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\constants\\ACTION.java": {
+        "package": "com.example.paul.constants",
+        "classes": [],
+        "methods": [],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\constants\\constants.java": {
+        "package": "com.example.paul.constants",
+        "classes": [
+            {
+                "name": "constants",
+                "line_number": 5,
+                "package": "com.example.paul.constants",
+                "annotations": []
+            }
+        ],
+        "methods": [],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\controllers\\AccountRestController.java": {
+        "package": "com.example.paul.controllers",
+        "classes": [
+            {
+                "name": "AccountRestController",
+                "line_number": 25,
+                "package": "com.example.paul.controllers",
+                "annotations": [
+                    "RestController",
+                    "RequestMapping"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "checkAccountBalance",
+                "line_number": 39,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "createAccount",
+                "line_number": 65,
+                "annotations": [
+                    "PutMapping"
+                ]
+            },
+            {
+                "name": "handleValidationExceptions",
+                "line_number": 88,
+                "annotations": [
+                    "ResponseStatus",
+                    "ExceptionHandler"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.constants.constants",
+            "com.example.paul.models.Account",
+            "com.example.paul.services.AccountService",
+            "com.example.paul.utils.AccountInput",
+            "com.example.paul.utils.CreateAccountInput",
+            "com.example.paul.utils.InputValidator"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "checkAccountBalance",
+                    "path": "/accounts",
+                    "class": "AccountRestController",
+                    "line_number": 39,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "createAccount",
+                    "path": "/accounts",
+                    "class": "AccountRestController",
+                    "line_number": 65,
+                    "http_method": "PUT"
+                }
+            ],
+            "service_calls": [
+                {
+                    "class": "AccountRestController",
+                    "service": "AccountService",
+                    "field": "accountService"
+                }
+            ],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\controllers\\TransactionRestController.java": {
+        "package": "com.example.paul.controllers",
+        "classes": [
+            {
+                "name": "TransactionRestController",
+                "line_number": 27,
+                "package": "com.example.paul.controllers",
+                "annotations": [
+                    "RestController",
+                    "RequestMapping"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "makeTransfer",
+                "line_number": 46,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "withdraw",
+                "line_number": 60,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "deposit",
+                "line_number": 89,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "handleValidationExceptions",
+                "line_number": 112,
+                "annotations": [
+                    "ResponseStatus",
+                    "ExceptionHandler"
+                ]
+            },
+            {
+                "name": "getTransactionStatus",
+                "line_number": 129,
+                "annotations": [
+                    "GetMapping"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.constants.ACTION",
+            "com.example.paul.models.Account",
+            "com.example.paul.services.AccountService",
+            "com.example.paul.services.TransactionService",
+            "com.example.paul.utils",
+            "com.example.paul.constants.constants"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "makeTransfer",
+                    "path": "/transactions",
+                    "class": "TransactionRestController",
+                    "line_number": 46,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "withdraw",
+                    "path": "/withdraw",
+                    "class": "TransactionRestController",
+                    "line_number": 60,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "deposit",
+                    "path": "/deposit",
+                    "class": "TransactionRestController",
+                    "line_number": 89,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "getTransactionStatus",
+                    "path": "/transactions/{transactionId}/status",
+                    "class": "TransactionRestController",
+                    "line_number": 129,
+                    "http_method": "GET"
+                }
+            ],
+            "service_calls": [
+                {
+                    "class": "TransactionRestController",
+                    "service": "AccountService",
+                    "field": "accountService"
+                },
+                {
+                    "class": "TransactionRestController",
+                    "service": "TransactionService",
+                    "field": "transactionService"
+                }
+            ],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\models\\Account.java": {
+        "package": "com.example.paul.models",
+        "classes": [
+            {
+                "name": "Account",
+                "line_number": 13,
+                "package": "com.example.paul.models",
+                "annotations": [
+                    "Entity",
+                    "Table"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getId",
+                "line_number": 57,
+                "annotations": []
+            },
+            {
+                "name": "setId",
+                "line_number": 60,
+                "annotations": []
+            },
+            {
+                "name": "getSortCode",
+                "line_number": 63,
+                "annotations": []
+            },
+            {
+                "name": "setSortCode",
+                "line_number": 66,
+                "annotations": []
+            },
+            {
+                "name": "getAccountNumber",
+                "line_number": 69,
+                "annotations": []
+            },
+            {
+                "name": "setAccountNumber",
+                "line_number": 72,
+                "annotations": []
+            },
+            {
+                "name": "getCurrentBalance",
+                "line_number": 75,
+                "annotations": []
+            },
+            {
+                "name": "setCurrentBalance",
+                "line_number": 78,
+                "annotations": []
+            },
+            {
+                "name": "getOwnerName",
+                "line_number": 81,
+                "annotations": []
+            },
+            {
+                "name": "setOwnerName",
+                "line_number": 84,
+                "annotations": []
+            },
+            {
+                "name": "getBankName",
+                "line_number": 87,
+                "annotations": []
+            },
+            {
+                "name": "setBankName",
+                "line_number": 90,
+                "annotations": []
+            },
+            {
+                "name": "getTransactions",
+                "line_number": 93,
+                "annotations": []
+            },
+            {
+                "name": "setTransactions",
+                "line_number": 96,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 101,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\models\\Transaction.java": {
+        "package": "com.example.paul.models",
+        "classes": [
+            {
+                "name": "Transaction",
+                "line_number": 11,
+                "package": "com.example.paul.models",
+                "annotations": [
+                    "Entity",
+                    "Table",
+                    "SequenceGenerator"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getId",
+                "line_number": 38,
+                "annotations": []
+            },
+            {
+                "name": "setId",
+                "line_number": 41,
+                "annotations": []
+            },
+            {
+                "name": "getSourceAccountId",
+                "line_number": 44,
+                "annotations": []
+            },
+            {
+                "name": "setSourceAccountId",
+                "line_number": 47,
+                "annotations": []
+            },
+            {
+                "name": "getTargetAccountId",
+                "line_number": 50,
+                "annotations": []
+            },
+            {
+                "name": "setTargetAccountId",
+                "line_number": 53,
+                "annotations": []
+            },
+            {
+                "name": "getTargetOwnerName",
+                "line_number": 56,
+                "annotations": []
+            },
+            {
+                "name": "setTargetOwnerName",
+                "line_number": 59,
+                "annotations": []
+            },
+            {
+                "name": "getAmount",
+                "line_number": 62,
+                "annotations": []
+            },
+            {
+                "name": "setAmount",
+                "line_number": 65,
+                "annotations": []
+            },
+            {
+                "name": "getInitiationDate",
+                "line_number": 68,
+                "annotations": []
+            },
+            {
+                "name": "setInitiationDate",
+                "line_number": 71,
+                "annotations": []
+            },
+            {
+                "name": "getCompletionDate",
+                "line_number": 74,
+                "annotations": []
+            },
+            {
+                "name": "setCompletionDate",
+                "line_number": 77,
+                "annotations": []
+            },
+            {
+                "name": "getReference",
+                "line_number": 80,
+                "annotations": []
+            },
+            {
+                "name": "setReference",
+                "line_number": 83,
+                "annotations": []
+            },
+            {
+                "name": "getLatitude",
+                "line_number": 86,
+                "annotations": []
+            },
+            {
+                "name": "setLatitude",
+                "line_number": 89,
+                "annotations": []
+            },
+            {
+                "name": "getLongitude",
+                "line_number": 92,
+                "annotations": []
+            },
+            {
+                "name": "setLongitude",
+                "line_number": 95,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 100,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\repositories\\AccountRepository.java": {
+        "package": "com.example.paul.repositories",
+        "classes": [],
+        "methods": [
+            {
+                "name": "findBySortCodeAndAccountNumber",
+                "line_number": 10,
+                "annotations": []
+            },
+            {
+                "name": "findByAccountNumber",
+                "line_number": 11,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.models.Account"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\repositories\\TransactionRepository.java": {
+        "package": "com.example.paul.repositories",
+        "classes": [],
+        "methods": [
+            {
+                "name": "findBySourceAccountIdOrderByInitiationDate",
+                "line_number": 11,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.models.Transaction"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\services\\AccountService.java": {
+        "package": "com.example.paul.services",
+        "classes": [
+            {
+                "name": "AccountService",
+                "line_number": 12,
+                "package": "com.example.paul.services",
+                "annotations": [
+                    "Service"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getAccount",
+                "line_number": 23,
+                "annotations": []
+            },
+            {
+                "name": "getAccount",
+                "line_number": 34,
+                "annotations": []
+            },
+            {
+                "name": "createAccount",
+                "line_number": 41,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.models.Account",
+            "com.example.paul.repositories.AccountRepository",
+            "com.example.paul.repositories.TransactionRepository",
+            "com.example.paul.utils.CodeGenerator"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "AccountService",
+                    "repository": "AccountRepository",
+                    "field": "accountRepository"
+                },
+                {
+                    "class": "AccountService",
+                    "repository": "TransactionRepository",
+                    "field": "transactionRepository"
+                }
+            ]
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\services\\TransactionService.java": {
+        "package": "com.example.paul.services",
+        "classes": [
+            {
+                "name": "TransactionService",
+                "line_number": 16,
+                "package": "com.example.paul.services",
+                "annotations": [
+                    "Service"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "makeTransfer",
+                "line_number": 23,
+                "annotations": []
+            },
+            {
+                "name": "updateAccountBalance",
+                "line_number": 58,
+                "annotations": []
+            },
+            {
+                "name": "isAmountAvailable",
+                "line_number": 68,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.constants.ACTION",
+            "com.example.paul.models.Account",
+            "com.example.paul.models.Transaction",
+            "com.example.paul.repositories.AccountRepository",
+            "com.example.paul.repositories.TransactionRepository",
+            "com.example.paul.utils.TransactionInput"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "TransactionService",
+                    "repository": "AccountRepository",
+                    "field": "accountRepository"
+                },
+                {
+                    "class": "TransactionService",
+                    "repository": "TransactionRepository",
+                    "field": "transactionRepository"
+                }
+            ]
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\AccountInput.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "AccountInput",
+                "line_number": 6,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "getSortCode",
+                "line_number": 16,
+                "annotations": []
+            },
+            {
+                "name": "setSortCode",
+                "line_number": 19,
+                "annotations": []
+            },
+            {
+                "name": "getAccountNumber",
+                "line_number": 22,
+                "annotations": []
+            },
+            {
+                "name": "setAccountNumber",
+                "line_number": 25,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 30,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "equals",
+                "line_number": 38,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "hashCode",
+                "line_number": 47,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\CodeGenerator.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "CodeGenerator",
+                "line_number": 8,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "generateSortCode",
+                "line_number": 14,
+                "annotations": []
+            },
+            {
+                "name": "generateAccountNumber",
+                "line_number": 18,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.mifmif.common.regex.Generex",
+            "com.example.paul.constants.constants.ACCOUNT_NUMBER_PATTERN_STRING",
+            "com.example.paul.constants.constants.SORT_CODE_PATTERN_STRING"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\CreateAccountInput.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "CreateAccountInput",
+                "line_number": 6,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "getBankName",
+                "line_number": 17,
+                "annotations": []
+            },
+            {
+                "name": "setBankName",
+                "line_number": 21,
+                "annotations": []
+            },
+            {
+                "name": "getOwnerName",
+                "line_number": 25,
+                "annotations": []
+            },
+            {
+                "name": "setOwnerName",
+                "line_number": 29,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 34,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "equals",
+                "line_number": 42,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "hashCode",
+                "line_number": 51,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\DepositInput.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "DepositInput",
+                "line_number": 7,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "getTargetAccountNo",
+                "line_number": 19,
+                "annotations": []
+            },
+            {
+                "name": "setTargetAccountNo",
+                "line_number": 23,
+                "annotations": []
+            },
+            {
+                "name": "getAmount",
+                "line_number": 27,
+                "annotations": []
+            },
+            {
+                "name": "setAmount",
+                "line_number": 31,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 36,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "equals",
+                "line_number": 44,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "hashCode",
+                "line_number": 53,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\InputValidator.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "InputValidator",
+                "line_number": 5,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "isSearchCriteriaValid",
+                "line_number": 7,
+                "annotations": []
+            },
+            {
+                "name": "isAccountNoValid",
+                "line_number": 12,
+                "annotations": []
+            },
+            {
+                "name": "isCreateAccountCriteriaValid",
+                "line_number": 16,
+                "annotations": []
+            },
+            {
+                "name": "isSearchTransactionValid",
+                "line_number": 20,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [
+            "com.example.paul.constants.constants"
+        ],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\TransactionInput.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "TransactionInput",
+                "line_number": 7,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "getSourceAccount",
+                "line_number": 30,
+                "annotations": []
+            },
+            {
+                "name": "setSourceAccount",
+                "line_number": 33,
+                "annotations": []
+            },
+            {
+                "name": "getTargetAccount",
+                "line_number": 36,
+                "annotations": []
+            },
+            {
+                "name": "setTargetAccount",
+                "line_number": 39,
+                "annotations": []
+            },
+            {
+                "name": "getAmount",
+                "line_number": 42,
+                "annotations": []
+            },
+            {
+                "name": "setAmount",
+                "line_number": 45,
+                "annotations": []
+            },
+            {
+                "name": "getReference",
+                "line_number": 48,
+                "annotations": []
+            },
+            {
+                "name": "setReference",
+                "line_number": 51,
+                "annotations": []
+            },
+            {
+                "name": "getLatitude",
+                "line_number": 54,
+                "annotations": []
+            },
+            {
+                "name": "setLatitude",
+                "line_number": 57,
+                "annotations": []
+            },
+            {
+                "name": "getLongitude",
+                "line_number": 60,
+                "annotations": []
+            },
+            {
+                "name": "setLongitude",
+                "line_number": 63,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 68,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "clonned_repo\\src\\main\\java\\com\\example\\paul\\utils\\WithdrawInput.java": {
+        "package": "com.example.paul.utils",
+        "classes": [
+            {
+                "name": "WithdrawInput",
+                "line_number": 6,
+                "package": "com.example.paul.utils",
+                "annotations": []
+            }
+        ],
+        "methods": [
+            {
+                "name": "getAmount",
+                "line_number": 19,
+                "annotations": []
+            },
+            {
+                "name": "setAmount",
+                "line_number": 23,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 28,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "equals",
+                "line_number": 37,
+                "annotations": [
+                    "Override"
+                ]
+            },
+            {
+                "name": "hashCode",
+                "line_number": 47,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    }
+}

@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 TestFlow: Context-Aware BDD Generator
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
@@ -14,47 +14,72 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+TestFlow is an intelligent context-aware testing tool that automatically generates Behavior Driven Development (BDD) test cases from Java codebases. Developed for the Context-Aware Testing , it analyzes Spring Boot applications, extracts API endpoints with their full context, and creates comprehensive test suites that understand the relationships between components.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+📹 [Video Demo](#) (Coming soon)  
 🖼️ Screenshots:
 
-![Screenshot 1](link-to-image)
+![Generated BDD Tests](https://via.placeholder.com/600x400?text=BDD+Test+Cases)
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+Traditional test case creation lacks awareness of the full application context, often leading to fragile tests that break when code changes. TestFlow was inspired by the need to generate tests that understand relationships between components, providing developers with robust test suites that adapt to evolving applications while maintaining comprehensive coverage.
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+- **Context-Aware Analysis**: Extracts not just API endpoints but their full context including controllers, services, and repositories
+- **Dependency Mapping**: Creates detailed dependency graphs showing how components interact
+- **Intelligent BDD Generation**: Generates tests that understand business logic and data flow
+- **Smart Change Detection**: Identifies affected components when code changes and updates only relevant tests
+- **Rich HTML Reports**: Produces detailed reports showing test execution results with context
+- **Cross-Platform Compatibility**: Handles system-specific issues like Windows file permissions
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+TestFlow combines static code analysis with AI-powered test generation. The system parses Java files to build a complete context model of the application, tracks relationships between components, and leverages LLM technology to generate meaningful test scenarios based on the full application context. When code changes, it intelligently updates only the affected tests.
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+- **Context Extraction**: Building a complete model of application components and their relationships
+- **Intelligent Test Generation**: Creating tests that understand business logic, not just API contracts
+- **Change Impact Analysis**: Determining which tests need updates when code changes
+- **Cross-Platform Compatibility**: Handling file system differences between operating systems
+- **Report Clarity**: Making test results easy to understand in the context of the application
 
 ## 🏃 How to Run
 1. Clone the repository  
    ```sh
-   git clone https://github.com/your-repo.git
+   git clone https://github.com/ewfx/catfe-deep-seekers.git
+   
    ```
 2. Install dependencies  
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   pip install -r requirements.txt
    ```
-3. Run the project  
+3. Configure your project  
    ```sh
-   npm start  # or python app.py
+   # Edit config.json with your repository URL and OpenAI API key
+   ```
+4. Run the full analysis  
+   ```sh
+   python generate_artifacts.py
+   ```
+5. Run BDD tests  
+   ```sh
+   python run_everything.py
+   ```
+6. Update after code changes  
+   ```sh
+   python update_from_git.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Python: Core application logic
+- 🔹 Javalang: Java parsing and static analysis
+- 🔹 OpenAI API: Context-aware test generation
+- 🔹 Behave: BDD test execution
+- 🔹 GitPython: Version control integration
+
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Kowshik Biradavolu** - [GitHub](#) | [LinkedIn](#)
+- **Kishore Kanna K** - [GitHub](#) | [LinkedIn](#)
+- **Venkatesh Nachimuthu** - [GitHub](#) | [LinkedIn](#)
+- **Sunil Gopa** - [GitHub](#) | [LinkedIn](#)

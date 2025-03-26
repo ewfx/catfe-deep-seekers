@@ -1,0 +1,86 @@
+<testsuite name="PUT_api_v1_accounts.Account Creation" tests="5" errors="0" failures="5" skipped="0" time="0.0" timestamp="2025-03-26T10:46:31.156759" hostname="DESKTOP-1PFA9L5"><testcase classname="PUT_api_v1_accounts.Account Creation" name="Successful account creation" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given I am a new user ... undefined in 0.000s
+Location: summary/bdd_test_cases/PUT_api_v1_accounts.feature:7
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Successful account creation
+    Given I am a new user ... undefined in 0.000s
+    When I send a "PUT" request to "api/v1/accounts" with valid account details ... skipped in 0.000s
+    Then I should receive a 200 status code ... skipped in 0.000s
+    And a response body confirming the account creation ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="PUT_api_v1_accounts.Account Creation" name="Account creation with missing mandatory fields" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given I am a new user ... undefined in 0.000s
+Location: summary/bdd_test_cases/PUT_api_v1_accounts.feature:13
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Account creation with missing mandatory fields
+    Given I am a new user ... undefined in 0.000s
+    When I send a "PUT" request to "api/v1/accounts" with missing mandatory fields ... undefined in 0.000s
+    Then I should receive a 400 status code ... skipped in 0.000s
+    And a response body indicating the missing mandatory fields ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="PUT_api_v1_accounts.Account Creation" name="Account creation with invalid field values" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given I am a new user ... undefined in 0.000s
+Location: summary/bdd_test_cases/PUT_api_v1_accounts.feature:19
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Account creation with invalid field values
+    Given I am a new user ... undefined in 0.000s
+    When I send a "PUT" request to "api/v1/accounts" with invalid field values ... undefined in 0.000s
+    Then I should receive a 400 status code ... skipped in 0.000s
+    And a response body indicating the invalid field values ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="PUT_api_v1_accounts.Account Creation" name="Account creation with an already existing username" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given I am a new user ... undefined in 0.000s
+Location: summary/bdd_test_cases/PUT_api_v1_accounts.feature:25
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Account creation with an already existing username
+    Given I am a new user ... undefined in 0.000s
+    When I send a "PUT" request to "api/v1/accounts" with an already existing username ... undefined in 0.000s
+    Then I should receive a 409 status code ... skipped in 0.000s
+    And a response body indicating the username already exists ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="PUT_api_v1_accounts.Account Creation" name="Unauthorized account creation" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given I am an unauthorized user ... undefined in 0.000s
+Location: summary/bdd_test_cases/PUT_api_v1_accounts.feature:31
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unauthorized account creation
+    Given I am an unauthorized user ... undefined in 0.000s
+    When I send a "PUT" request to "api/v1/accounts" with valid account details ... skipped in 0.000s
+    Then I should receive a 401 status code ... skipped in 0.000s
+    And a response body indicating I am unauthorized to create an account ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

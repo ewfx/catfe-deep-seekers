@@ -1,0 +1,236 @@
+{
+  "api/v1/accounts:POST": {
+    "endpoint": "api/v1/accounts",
+    "method": "POST",
+    "controller": {
+      "file": "AccountRestController.java",
+      "method": "checkAccountBalance",
+      "responsibility": "Handles api/v1/accounts requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/accounts"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java"
+    ]
+  },
+  "api/v1/accounts:PUT": {
+    "endpoint": "api/v1/accounts",
+    "method": "PUT",
+    "controller": {
+      "file": "AccountRestController.java",
+      "method": "createAccount",
+      "responsibility": "Handles api/v1/accounts requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/accounts"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java"
+    ]
+  },
+  "api/v1/transactions:POST": {
+    "endpoint": "api/v1/transactions",
+    "method": "POST",
+    "controller": {
+      "file": "TransactionRestController.java",
+      "method": "makeTransfer",
+      "responsibility": "Handles api/v1/transactions requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/transactions"
+      },
+      {
+        "file": "TransactionService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/transactions"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java",
+      "TransactionService.java"
+    ]
+  },
+  "api/v1/withdraw:POST": {
+    "endpoint": "api/v1/withdraw",
+    "method": "POST",
+    "controller": {
+      "file": "TransactionRestController.java",
+      "method": "withdraw",
+      "responsibility": "Handles api/v1/withdraw requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/withdraw"
+      },
+      {
+        "file": "TransactionService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/withdraw"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java",
+      "TransactionService.java"
+    ]
+  },
+  "api/v1/deposit:POST": {
+    "endpoint": "api/v1/deposit",
+    "method": "POST",
+    "controller": {
+      "file": "TransactionRestController.java",
+      "method": "deposit",
+      "responsibility": "Handles api/v1/deposit requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/deposit"
+      },
+      {
+        "file": "TransactionService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/deposit"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java",
+      "TransactionService.java"
+    ]
+  },
+  "api/v1/transactions/{transactionId}/status:GET": {
+    "endpoint": "api/v1/transactions/{transactionId}/status",
+    "method": "GET",
+    "controller": {
+      "file": "TransactionRestController.java",
+      "method": "getTransactionStatus",
+      "responsibility": "Handles api/v1/transactions/{transactionId}/status requests"
+    },
+    "serviceChain": [
+      {
+        "file": "AccountService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/transactions/{transactionId}/status"
+      },
+      {
+        "file": "TransactionService.java",
+        "method": "Unknown",
+        "responsibility": "Business logic for api/v1/transactions/{transactionId}/status"
+      }
+    ],
+    "repositoryAccess": [
+      {
+        "file": "AccountRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Account"
+      },
+      {
+        "file": "TransactionRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Transaction"
+      }
+    ],
+    "dataModels": [
+      "Account.java",
+      "Transaction.java"
+    ],
+    "dependencies": [
+      "AccountService.java",
+      "TransactionService.java"
+    ]
+  }
+}

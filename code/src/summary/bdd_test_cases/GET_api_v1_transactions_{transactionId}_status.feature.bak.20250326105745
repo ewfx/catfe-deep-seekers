@@ -1,0 +1,34 @@
+# BDD Test Cases for GET api/v1/transactions/{transactionId}/status
+
+Feature: Transaction Status Retrieval
+As a user, I want to be able to retrieve the status of a specific transaction so that I can keep track of my financial activities.
+
+Scenario: Retrieve the status of a valid transaction
+Given I have a valid transaction ID
+When I send a GET request to "api/v1/transactions/{transactionId}/status"
+Then I should receive a 200 status code
+And the response body should contain the status of the transaction
+
+Scenario: Retrieve the status of a non-existent transaction
+Given I have a non-existent transaction ID
+When I send a GET request to "api/v1/transactions/{transactionId}/status"
+Then I should receive a 404 status code
+And the response body should contain an error message indicating that the transaction does not exist
+
+Scenario: Retrieve the status of a transaction with an invalid ID format
+Given I have a transaction ID in an invalid format
+When I send a GET request to "api/v1/transactions/{transactionId}/status"
+Then I should receive a 400 status code
+And the response body should contain an error message indicating that the transaction ID format is invalid
+
+Scenario: Retrieve the status of a transaction without authentication
+Given I am not authenticated
+When I send a GET request to "api/v1/transactions/{transactionId}/status"
+Then I should receive a 401 status code
+And the response body should contain an error message indicating that authentication is required
+
+Scenario: Retrieve the status of a transaction without authorization
+Given I am authenticated but not authorized to view the transaction status
+When I send a GET request to "api/v1/transactions/{transactionId}/status"
+Then I should receive a 403 status code
+And the response body should contain an error message indicating that I am not authorized to view the transaction status

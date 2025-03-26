@@ -1,0 +1,86 @@
+<testsuite name="POST_api_v1_accounts.Account Balance Check" tests="5" errors="0" failures="5" skipped="0" time="0.023192" timestamp="2025-03-26T10:46:31.148697" hostname="DESKTOP-1PFA9L5"><testcase classname="POST_api_v1_accounts.Account Balance Check" name="Successful account balance check" status="failed" time="0.007949"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: When I send a "POST" request to "api/v1/accounts" to check my account balance ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_accounts.feature:8
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Successful account balance check
+    Given I am an authenticated user ... passed in 0.008s
+    When I send a "POST" request to "api/v1/accounts" to check my account balance ... undefined in 0.000s
+    Then I should receive a 200 status code ... skipped in 0.000s
+    And the response should include my current account balance ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_accounts.Account Balance Check" name="Unsuccessful account balance check due to unauthenticated user" status="failed" time="0.000392"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: When I send a "POST" request to "api/v1/accounts" to check my account balance ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_accounts.feature:14
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful account balance check due to unauthenticated user
+    Given I am an unauthenticated user ... passed in 0.000s
+    When I send a "POST" request to "api/v1/accounts" to check my account balance ... undefined in 0.000s
+    Then I should receive a 401 status code ... skipped in 0.000s
+    And the response should include an error message stating "Unauthorized access" ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_accounts.Account Balance Check" name="Unsuccessful account balance check due to invalid account" status="failed" time="0.008105"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: When I send a "POST" request to "api/v1/accounts" with an invalid account ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_accounts.feature:20
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful account balance check due to invalid account
+    Given I am an authenticated user ... passed in 0.008s
+    When I send a "POST" request to "api/v1/accounts" with an invalid account ... undefined in 0.000s
+    Then I should receive a 404 status code ... skipped in 0.000s
+    And the response should include an error message stating "Account not found" ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_accounts.Account Balance Check" name="Unsuccessful account balance check due to server error" status="failed" time="0"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: Given the account service is down ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_accounts.feature:25
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful account balance check due to server error
+    Given the account service is down ... undefined in 0.000s
+    When I send a "POST" request to "api/v1/accounts" to check my account balance ... undefined in 0.000s
+    Then I should receive a 500 status code ... skipped in 0.000s
+    And the response should include an error message stating "Internal server error" ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="POST_api_v1_accounts.Account Balance Check" name="Unsuccessful account balance check due to missing account parameter" status="failed" time="0.006746"><failure type="NoneType" message="None">
+<![CDATA[
+Failing step: When I send a "POST" request to "api/v1/accounts" without an account parameter ... undefined in 0.000s
+Location: summary/bdd_test_cases/POST_api_v1_accounts.feature:32
+None]]>
+</failure><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Unsuccessful account balance check due to missing account parameter
+    Given I am an authenticated user ... passed in 0.007s
+    When I send a "POST" request to "api/v1/accounts" without an account parameter ... undefined in 0.000s
+    Then I should receive a 400 status code ... skipped in 0.000s
+    And the response should include an error message stating "Missing account parameter" ... undefined in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

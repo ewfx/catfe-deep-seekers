@@ -1,0 +1,157 @@
+Feature: Account Balance Check # summary/bdd_test_cases/POST_api_v1_accounts.feature:3
+  As a user, I want to check my account balance so that I can manage my finances effectively.
+  Scenario: Successful account balance check                                      # summary/bdd_test_cases/POST_api_v1_accounts.feature:6
+    Given I am an authenticated user                                              # summary/bdd_test_cases/steps/api_steps.py:97
+    When I send a "POST" request to "api/v1/accounts" to check my account balance # None
+    Then I should receive a 200 status code                                       # None
+    And the response should include my current account balance                    # None
+
+  Scenario: Unsuccessful account balance check due to unauthenticated user         # summary/bdd_test_cases/POST_api_v1_accounts.feature:12
+    Given I am an unauthenticated user                                             # summary/bdd_test_cases/steps/api_steps.py:65
+    When I send a "POST" request to "api/v1/accounts" to check my account balance  # None
+    Then I should receive a 401 status code                                        # None
+    And the response should include an error message stating "Unauthorized access" # None
+
+  Scenario: Unsuccessful account balance check due to invalid account            # summary/bdd_test_cases/POST_api_v1_accounts.feature:18
+    Given I am an authenticated user                                             # summary/bdd_test_cases/steps/api_steps.py:97
+    When I send a "POST" request to "api/v1/accounts" with an invalid account    # None
+    Then I should receive a 404 status code                                      # None
+    And the response should include an error message stating "Account not found" # None
+
+  Scenario: Unsuccessful account balance check due to server error                   # summary/bdd_test_cases/POST_api_v1_accounts.feature:24
+    Given the account service is down                                                # None
+    When I send a "POST" request to "api/v1/accounts" to check my account balance    # None
+    Then I should receive a 500 status code                                          # None
+    And the response should include an error message stating "Internal server error" # None
+
+  Scenario: Unsuccessful account balance check due to missing account parameter          # summary/bdd_test_cases/POST_api_v1_accounts.feature:30
+    Given I am an authenticated user                                                     # summary/bdd_test_cases/steps/api_steps.py:97
+    When I send a "POST" request to "api/v1/accounts" without an account parameter       # None
+    Then I should receive a 400 status code                                              # None
+    And the response should include an error message stating "Missing account parameter" # None
+
+Feature: Deposit API # summary/bdd_test_cases/POST_api_v1_deposit.feature:3
+  As a user, I want to deposit money into my account so that I can increase my account balance.
+  Business Value:
+  This feature allows users to deposit money into their accounts, increasing their balance and enabling them to make further transactions. It is a fundamental feature of any banking or financial application.
+  Scenario 1: Successful Deposit
+  Given the user has a valid account
+  When the user makes a POST request to "api/v1/deposit" with a valid amount
+  Then the system should call the "AccountService" and "TransactionService"
+  And the system should increase the user's account balance by the deposited amount
+  And the system should return a 200 status code
+  Scenario 2: Deposit with Invalid Amount
+  Given the user has a valid account
+  When the user makes a POST request to "api/v1/deposit" with an invalid amount (negative or zero)
+  Then the system should return a 400 status code
+  And the system should return an error message indicating the invalid amount
+  Scenario 3: Deposit without Authentication
+  Given the user is not authenticated
+  When the user makes a POST request to "api/v1/deposit"
+  Then the system should return a 401 status code
+  And the system should return an error message indicating the user is not authenticated
+  Scenario 4: Deposit with Unauthorized Account
+  Given the user is authenticated
+  But the user does not have permission to deposit into the specified account
+  When the user makes a POST request to "api/v1/deposit"
+  Then the system should return a 403 status code
+  And the system should return an error message indicating the user is not authorized
+  Scenario 5: Deposit to Non-Existent Account
+  Given the user is authenticated
+  And the user specifies an account that does not exist
+  When the user makes a POST request to "api/v1/deposit"
+  Then the system should return a 404 status code
+  And the system should return an error message indicating the account does not exist
+Feature: Transaction API # summary/bdd_test_cases/POST_api_v1_transactions.feature:3
+  As a user, I want to make a transfer between accounts so that I can manage my finances.
+  Business Value:
+  This feature allows users to transfer money between their accounts, providing a key functionality for any banking or financial service. It is critical that this feature works correctly to maintain user trust and satisfaction.
+  Scenario 1: Successful Transaction
+  Given a user has two accounts with sufficient balance
+  When the user makes a POST request to "api/v1/transactions" with valid account details and transfer amount
+  Then the transaction should be successful
+  And the balances of both accounts should be updated accordingly
+  Scenario 2: Insufficient Funds
+  Given a user has two accounts with insufficient balance in the source account
+  When the user makes a POST request to "api/v1/transactions" with valid account details and transfer amount
+  Then the transaction should fail
+  And an error message indicating insufficient funds should be returned
+  Scenario 3: Invalid Account Details
+  Given a user has two accounts
+  When the user makes a POST request to "api/v1/transactions" with invalid account details
+  Then the transaction should fail
+  And an error message indicating invalid account details should be returned
+  Scenario 4: Unauthorized Transaction
+  Given a user has two accounts
+  When an unauthorized user makes a POST request to "api/v1/transactions" with valid account details and transfer amount
+  Then the transaction should fail
+  And an error message indicating unauthorized access should be returned
+  Scenario 5: Invalid Transfer Amount
+  Given a user has two accounts with sufficient balance
+  When the user makes a POST request to "api/v1/transactions" with valid account details and invalid transfer amount (e.g., negative amount, zero, non-numeric)
+  Then the transaction should fail
+  And an error message indicating invalid transfer amount should be returned
+Feature: Withdrawal from Account # summary/bdd_test_cases/POST_api_v1_withdraw.feature:3
+  As a user, I want to withdraw money from my account so that I can use it for my needs.
+  Scenario: Successful withdrawal from account                                               # summary/bdd_test_cases/POST_api_v1_withdraw.feature:6
+    Given a user has an account with a balance of $500                                       # None
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 # None
+    Then the withdrawal should be successful                                                 # None
+    And the account balance should be reduced by $200                                        # None
+
+  Scenario: Unsuccessful withdrawal due to insufficient funds                                # summary/bdd_test_cases/POST_api_v1_withdraw.feature:12
+    Given a user has an account with a balance of $100                                       # None
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 # None
+    Then the withdrawal should be unsuccessful                                               # None
+    And the system should respond with an "Insufficient funds" message                       # None
+
+  Scenario: Unsuccessful withdrawal due to invalid amount                                    # summary/bdd_test_cases/POST_api_v1_withdraw.feature:18
+    Given a user has an account with a balance of $500                                       # None
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $-50 # None
+    Then the withdrawal should be unsuccessful                                               # None
+    And the system should respond with an "Invalid withdrawal amount" message                # None
+
+  Scenario: Unsuccessful withdrawal due to unauthenticated user                              # summary/bdd_test_cases/POST_api_v1_withdraw.feature:24
+    Given a user is not authenticated                                                        # None
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 # None
+    Then the withdrawal should be unsuccessful                                               # None
+    And the system should respond with an "Unauthenticated user" message                     # None
+
+  Scenario: Unsuccessful withdrawal due to unauthorized user                                 # summary/bdd_test_cases/POST_api_v1_withdraw.feature:30
+    Given a user is authenticated but not authorized to make withdrawals                     # None
+    When the user makes a POST request to "api/v1/withdraw" with a withdrawal amount of $200 # None
+    Then the withdrawal should be unsuccessful                                               # None
+    And the system should respond with an "Unauthorized user" message                        # None
+
+Feature: Account Creation # summary/bdd_test_cases/PUT_api_v1_accounts.feature:3
+  As a user, I want to be able to create an account so that I can access the system's features and services.
+  Scenario: Successful account creation                                         # summary/bdd_test_cases/PUT_api_v1_accounts.feature:6
+    Given I am a new user                                                       # None
+    When I send a "PUT" request to "api/v1/accounts" with valid account details # None
+    Then I should receive a 200 status code                                     # None
+    And a response body confirming the account creation                         # None
+
+  Scenario: Account creation with missing mandatory fields                         # summary/bdd_test_cases/PUT_api_v1_accounts.feature:12
+    Given I am a new user                                                          # None
+    When I send a "PUT" request to "api/v1/accounts" with missing mandatory fields # None
+    Then I should receive a 400 status code                                        # None
+    And a response body indicating the missing mandatory fields                    # None
+
+  Scenario: Account creation with invalid field values                         # summary/bdd_test_cases/PUT_api_v1_accounts.feature:18
+    Given I am a new user                                                      # None
+    When I send a "PUT" request to "api/v1/accounts" with invalid field values # None
+    Then I should receive a 400 status code                                    # None
+    And a response body indicating the invalid field values                    # None
+
+  Scenario: Account creation with an already existing username                         # summary/bdd_test_cases/PUT_api_v1_accounts.feature:24
+    Given I am a new user                                                              # None
+    When I send a "PUT" request to "api/v1/accounts" with an already existing username # None
+    Then I should receive a 409 status code                                            # None
+    And a response body indicating the username already exists                         # None
+
+  Scenario: Unauthorized account creation                                       # summary/bdd_test_cases/PUT_api_v1_accounts.feature:30
+    Given I am an unauthorized user                                             # None
+    When I send a "PUT" request to "api/v1/accounts" with valid account details # None
+    Then I should receive a 401 status code                                     # None
+    And a response body indicating I am unauthorized to create an account       # None
+
